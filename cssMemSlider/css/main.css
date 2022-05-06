@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 1280px;
+    height: 700px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    background: crimson;
+}
+h1 {
+    text-align: center;
+    font-size: 70px;
+}
