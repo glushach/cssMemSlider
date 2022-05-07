@@ -3,14 +3,130 @@
     margin: 0;
     padding: 0;
 }
+html {
+    font-size: 16px;
+}
 .container {
-    width: 1280px;
-    height: 700px;
+    max-width: 1280px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
-    background: crimson;
 }
 h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 2rem;
+}
+.carousel {
+    width: 100%;
+}
+.wrapper {
+    width: 95%;
+    background-color: #24292f;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.carousel__inner {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 600%;
+}
+.carousel__card {
+    width: calc(100% / 6);
+    padding: 0.3%;
+}
+.carousel__card > img {
+    border-radius: 0.5%;
+    width: 100%;
+}
+
+.controls {
+    width: 100%;
+    padding: 1.8%;
+    display: flex;
+}
+.titles {
+    width: 25%;
+    display: flex;
+    overflow: hidden;
+    column-gap: 100%;
+}
+.titles__item {
+    padding: 2.2% 0 2.5% 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.dots {
+    display: flex;
+    width: 30%;
+    margin-left: auto;
+    margin-right: 0.5%;
+}
+.dots__dot {
+    width: 100%;
+    padding-bottom: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 1s;
+}
+.dots__dot:hover span {
+    background: #ffffff;
+    border-color: #ffffff;
+    transition: all 1s;
+}
+.dots__dot:hover .active {
+    background: transparent;
+    border-color: #ffffff;
+}
+
+span {
+    display: block;
+    width: 50%;
+    padding: 20% 0;
+    border-radius: 50%;
+    border: 2px solid cornflowerblue;
+    background: cornflowerblue;
+    transition: all 1s;
+}
+span:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.active {
+    background: transparent;
+    transition: all 1s;
+}
+.active:hover {
+    background: transparent;
+    border-color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .titles {
+        width: 50%;
+        column-gap: 100%;
+    }
+    .titles__item {
+        font-size: 1.2rem;
+    }
+    .controls {
+        flex-direction: column-reverse;
+    }
+    .dots {
+        width: 50%;
+        margin: 0 auto;
+    }
 }
