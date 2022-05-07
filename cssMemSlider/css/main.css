@@ -62,7 +62,7 @@ h1 {
 
 .dots {
     display: flex;
-    width: 30%;
+    width: 16.5%;
     margin-left: auto;
     margin-right: 0.5%;
 }
@@ -126,7 +126,17 @@ span:hover {
         flex-direction: column-reverse;
     }
     .dots {
-        width: 50%;
+        width: 28%;
         margin: 0 auto;
+    }
+}
+@media (max-width: 450px) {
+    .dots {
+        width: 40%;
+    }
+}
+@media (max-width: 340px) {
+    .dots {
+        width: 50%;
     }
 }
