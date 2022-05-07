@@ -31,10 +31,10 @@ h1 {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 600%;
+    width: 300%;
 }
 .carousel__card {
-    width: calc(100% / 6);
+    width: calc(100% / 3);
     padding: 0.3%;
 }
 .carousel__card > img {

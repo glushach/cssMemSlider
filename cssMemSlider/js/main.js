@@ -7,5 +7,27 @@ const slides = [
     {src: './img/slide_6.1.jpg', alt: 'slide_6', title: 'Grass-plot'},
 ];
 
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelectorAll('.carousel__card');
+    const docs = document.querySelectorAll('.dots__dot');
+    const docsSpan = document.querySelectorAll('span')
 
-console.log('HI', slides)
+    docs.forEach((item, idx) => {
+        item.addEventListener('click', (e) => {
+
+            docsSpan.forEach((el, i) => {
+                el.classList.remove('active');
+
+                if (i === +e.target.dataset.id) {
+                    el.classList.add('active');
+                }
+            });
+
+            //console.log(slides[item.dataset.id])
+        });
+        //console.log(item.dataset.id)
+    })
+
+    console.log('Длина массива', slider.length)
+});
+
