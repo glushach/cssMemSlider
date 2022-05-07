@@ -32,6 +32,7 @@ h1 {
     flex-direction: row;
     flex-wrap: nowrap;
     width: 300%;
+    transform: translateX(calc(-100%/3));
 }
 .carousel__card {
     width: calc(100% / 3);
@@ -47,17 +48,23 @@ h1 {
     padding: 1.8%;
     display: flex;
 }
-.titles {
-    width: 25%;
-    display: flex;
+.titles__wrapper {
     overflow: hidden;
-    column-gap: 100%;
+    width: 17%;
+}
+.titles {
+    width: 100%;
+    display: flex;
+    transform: translateX(calc(-100%));
 }
 .titles__item {
     padding: 2.2% 0 2.5% 0;
     font-size: 1.4rem;
     color: #ffffff;
     white-space: nowrap;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .dots {
@@ -110,6 +117,12 @@ span:hover {
     background: transparent;
     border-color: #ffffff;
 }
+
+
+
+
+
+
 
 @media (max-width: 767px) {
     h1 {

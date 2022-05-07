@@ -10,7 +10,9 @@ const slides = [
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelectorAll('.carousel__card');
     const docs = document.querySelectorAll('.dots__dot');
-    const docsSpan = document.querySelectorAll('span')
+    const docsSpan = document.querySelectorAll('span');
+    const title = document.querySelectorAll('.titles__item');
+    let preventIndex = 0;
 
     docs.forEach((item, idx) => {
         item.addEventListener('click', (e) => {
@@ -18,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
             docsSpan.forEach((el, i) => {
                 el.classList.remove('active');
 
-                if (i === +e.target.dataset.id) {
+                let currentIndex = +e.target.dataset.id;
+                if (i === currentIndex) {
                     el.classList.add('active');
+                    preventIndex = currentIndex;
                 }
             });
-
+            console.log('IDX', preventIndex)
             //console.log(slides[item.dataset.id])
         });
         //console.log(item.dataset.id)
