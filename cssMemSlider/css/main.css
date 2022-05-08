@@ -55,7 +55,7 @@ h1 {
 .titles {
     width: 100%;
     display: flex;
-    transform: translateX(calc(-100%));
+    transform: translateX(-100%);
 }
 .titles__item {
     padding: 2.2% 0 2.5% 0;
@@ -119,9 +119,48 @@ span:hover {
 }
 
 
+/* Анимация для большого слайда */
+@keyframes move-right {
+    from { transform: translateX(calc(-100%/3)); }
+    to { transform: translateX(calc(-100%/3 * 2)); }
+}
+.transition-right { /* именно этот класс добавить блоку carousel__inner */
+    animation-name: move-right;
+    animation-duration: 2.5s;
+}
+
+@keyframes move-left {
+    from { transform: translateX(calc(-100%/3)) }
+    to { transform: translateX(0) }
+}
+.transition-left {
+    animation-name: move-left; /* именно этот класс добавить блоку carousel__inner */
+    animation-duration: 2.5s;
+}
+/* Конец анимации для большого слайда */
 
 
 
+
+/* Анимация для заголовка */
+@keyframes move-right-title {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(-200%); }
+}
+.transition-right-title { /* именно этот класс добавить блоку titles */
+    animation-name: move-right-title;
+    animation-duration: 2.5s;
+}
+
+@keyframes move-left-title {
+    from { transform: translateX(-100%) }
+    to { transform: translateX(0) }
+}
+.transition-left-title {
+    animation-name: move-left-title; /* именно этот класс добавить блоку titles */
+    animation-duration: 2.5s;
+}
+/* Конец анимации для заголовка */
 
 
 @media (max-width: 767px) {
