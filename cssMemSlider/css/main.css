@@ -50,15 +50,15 @@ h1 {
 }
 .titles__wrapper {
     overflow: hidden;
-    width: 17%;
+    /*width: 17%;*/
 }
 .titles {
     width: 100%;
     display: flex;
     transform: translateX(-100%);
+    padding: 2.2% 0 2.5% 0;
 }
 .titles__item {
-    padding: 2.2% 0 2.5% 0;
     font-size: 1.4rem;
     color: #ffffff;
     white-space: nowrap;
