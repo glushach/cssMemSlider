@@ -14,27 +14,26 @@ h1 {
     font-size: 2rem;
 }
 .carousel {
-    width: 100%;
-}
-.wrapper {
     width: 95%;
     background-color: #24292f;
     margin: 0 auto;
     overflow: hidden;
 }
+input[name="slide"] {
+    display: none;
+}
 .carousel__inner {
-    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 300%;
-    transform: translateX(calc(-100%/3));
+    width: 600%;
 }
 .carousel__card {
-    width: calc(100% / 3);
+    width: calc(100% / 6);
     padding: 0.7rem;
+    transition: all 1s;
 }
 .carousel__card > img {
     border-radius: 0.5%;
@@ -42,11 +41,6 @@ h1 {
     display: flex;
 }
 
-.controls {
-    width: 100%;
-    padding: 1.5rem 0.6rem 3rem;
-    display: flex;
-}
 .titles__wrapper {
     overflow: hidden;
     width: 15rem;
@@ -54,9 +48,10 @@ h1 {
 .titles {
     width: 100%;
     display: flex;
-    transform: translateX(-100%);
 }
 .titles__item {
+    width: 100%;
+    padding: 1.5rem 0.6rem 0;
     font-size: 1.4rem;
     color: #ffffff;
     white-space: nowrap;
@@ -70,6 +65,7 @@ h1 {
     display: flex;
     width: 12.5rem;
     margin-left: auto;
+    transform: translateY(-2.75rem);
 }
 .dots__dot {
     width: 100%;
@@ -77,9 +73,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
-    outline: none;
-    background: transparent;
     cursor: pointer;
     transition: all 1s;
 }
@@ -107,58 +100,53 @@ span:hover {
     border-color: #ffffff;
 }
 
-.active {
+/* start slide */
+#slide-1:checked ~ .carousel__inner .slide-1 {
+    margin-left: 0;
+}
+#slide-2:checked ~ .carousel__inner .slide-1 {
+    margin-left: calc(-100%/6);
+}
+#slide-3:checked ~ .carousel__inner .slide-1 {
+    margin-left: calc(-100%/6 * 2);
+}
+#slide-4:checked ~ .carousel__inner .slide-1 {
+    margin-left: calc(-100%/6 * 3);
+}
+#slide-5:checked ~ .carousel__inner .slide-1 {
+    margin-left: calc(-100%/6 * 4);
+}
+#slide-6:checked ~ .carousel__inner .slide-1 {
+    margin-left: calc(-100%/6 * 5);
+}
+/* end slide */
+
+/* start dots */
+#slide-1:checked ~ .dots label:nth-child(1) span {
     background: transparent;
     transition: all 1s;
 }
-.active:hover {
+#slide-2:checked ~ .dots label:nth-child(2) span {
     background: transparent;
-    border-color: #ffffff;
+    transition: all 1s;
 }
-
-
-/* Анимация для большого слайда */
-@keyframes move-right {
-    from { transform: translateX(calc(-100%/3)); }
-    to { transform: translateX(calc(-100%/3 * 2)); }
+#slide-3:checked ~ .dots label:nth-child(3) span {
+    background: transparent;
+    transition: all 1s;
 }
-.transition-right { /* именно этот класс добавить блоку carousel__inner */
-    animation-name: move-right;
-    animation-duration: 2.5s;
+#slide-4:checked ~ .dots label:nth-child(4) span {
+    background: transparent;
+    transition: all 1s;
 }
-
-@keyframes move-left {
-    from { transform: translateX(calc(-100%/3)) }
-    to { transform: translateX(0) }
+#slide-5:checked ~ .dots label:nth-child(5) span {
+    background: transparent;
+    transition: all 1s;
 }
-.transition-left {
-    animation-name: move-left; /* именно этот класс добавить блоку carousel__inner */
-    animation-duration: 2.5s;
+#slide-6:checked ~ .dots label:nth-child(6) span {
+    background: transparent;
+    transition: all 1s;
 }
-/* Конец анимации для большого слайда */
-
-
-
-
-/* Анимация для заголовка */
-@keyframes move-right-title {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(-200%); }
-}
-.transition-right-title { /* именно этот класс добавить блоку titles */
-    animation-name: move-right-title;
-    animation-duration: 2.5s;
-}
-
-@keyframes move-left-title {
-    from { transform: translateX(-100%) }
-    to { transform: translateX(0) }
-}
-.transition-left-title {
-    animation-name: move-left-title; /* именно этот класс добавить блоку titles */
-    animation-duration: 2.5s;
-}
-/* Конец анимации для заголовка */
+    /* and dots */
 
 
 @media (max-width: 767px) {
@@ -168,9 +156,9 @@ span:hover {
     .titles__item {
         font-size: 1.2rem;
         line-height: 1.7rem;
+        transform: translateY(2rem);
     }
     .controls {
-        flex-direction: column-reverse;
         padding: 1rem 0.6rem 2.5rem;
     }
     .dots {
