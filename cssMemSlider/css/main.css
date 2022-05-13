@@ -5,7 +5,7 @@
 }
 
 .container {
-    max-width: 100rem; /*1520*/
+    max-width: 63rem; /*960px*/
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
 }
@@ -29,6 +29,7 @@ input[name="slide"] {
     flex-direction: row;
     flex-wrap: nowrap;
     width: 600%;
+    transition: all 1s;
 }
 .carousel__card {
     width: calc(100% / 6);
@@ -41,31 +42,30 @@ input[name="slide"] {
     display: flex;
 }
 
-.titles__wrapper {
-    overflow: hidden;
-    width: 15rem;
-}
 .titles {
-    width: 100%;
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: all 1s;
+    padding-bottom: 1rem;
 }
 .titles__item {
     width: 100%;
     padding: 1.5rem 0.6rem 0;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: #ffffff;
-    white-space: nowrap;
     flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 0;
-    line-height: 2.8rem;
 }
-
 .dots {
     display: flex;
     width: 12.5rem;
     margin-left: auto;
-    transform: translateY(-2.75rem);
+    transform: translateY(-2.1rem);
+    background: #24292f;
 }
 .dots__dot {
     width: 100%;
@@ -101,48 +101,73 @@ span:hover {
 }
 
 /* start slide */
-#slide-1:checked ~ .carousel__inner .slide-1 {
-    margin-left: 0;
+#slide-1:checked ~ .carousel__inner {
+    transform: translateX(0);
 }
-#slide-2:checked ~ .carousel__inner .slide-1 {
-    margin-left: calc(-100%/6);
+#slide-2:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6));
 }
-#slide-3:checked ~ .carousel__inner .slide-1 {
-    margin-left: calc(-100%/6 * 2);
+#slide-3:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 2));
 }
-#slide-4:checked ~ .carousel__inner .slide-1 {
-    margin-left: calc(-100%/6 * 3);
+#slide-4:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 3));
 }
-#slide-5:checked ~ .carousel__inner .slide-1 {
-    margin-left: calc(-100%/6 * 4);
+#slide-5:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 4));
 }
-#slide-6:checked ~ .carousel__inner .slide-1 {
-    margin-left: calc(-100%/6 * 5);
+#slide-6:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 5));
 }
 /* end slide */
 
+
+
+/* start titles */
+#slide-1:checked ~ .controls .titles {
+    transform: translateX(0);
+}
+#slide-2:checked ~ .controls .titles {
+    transform: translateX(-100%);
+}
+#slide-3:checked ~ .controls .titles {
+    transform: translateX(-200%);
+}
+#slide-4:checked ~ .controls .titles {
+    transform: translateX(-300%);
+}
+#slide-5:checked ~ .controls .titles {
+    transform: translateX(-400%);
+}
+#slide-6:checked ~ .controls .titles {
+    transform: translateX(-500%);
+}
+/* end titles */
+
+
+
 /* start dots */
-#slide-1:checked ~ .dots label:nth-child(1) span {
+#slide-1:checked ~ .controls .dots label:nth-child(1) span {
     background: transparent;
     transition: all 1s;
 }
-#slide-2:checked ~ .dots label:nth-child(2) span {
+#slide-2:checked ~ .controls .dots label:nth-child(2) span {
     background: transparent;
     transition: all 1s;
 }
-#slide-3:checked ~ .dots label:nth-child(3) span {
+#slide-3:checked ~ .controls .dots label:nth-child(3) span {
     background: transparent;
     transition: all 1s;
 }
-#slide-4:checked ~ .dots label:nth-child(4) span {
+#slide-4:checked ~ .controls .dots label:nth-child(4) span {
     background: transparent;
     transition: all 1s;
 }
-#slide-5:checked ~ .dots label:nth-child(5) span {
+#slide-5:checked ~ .controls .dots label:nth-child(5) span {
     background: transparent;
     transition: all 1s;
 }
-#slide-6:checked ~ .dots label:nth-child(6) span {
+#slide-6:checked ~ .controls .dots label:nth-child(6) span {
     background: transparent;
     transition: all 1s;
 }
@@ -154,14 +179,15 @@ span:hover {
         font-size: 1.5rem;
     }
     .titles__item {
-        font-size: 1.2rem;
-        line-height: 1.7rem;
-        transform: translateY(2rem);
+        font-size: 1rem;
     }
     .controls {
         padding: 1rem 0.6rem 2.5rem;
+        display: flex;
+        flex-direction: column-reverse;
     }
     .dots {
         margin: 0 auto;
+        transform: translateY(0);
     }
 }
