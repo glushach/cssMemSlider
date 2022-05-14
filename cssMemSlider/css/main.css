@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 63rem; /*960px*/
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+.carousel {
+    width: 95%;
+    background-color: #24292f;
+    margin: 0 auto;
+    overflow: hidden;
+}
+input[name="slide"] {
+    display: none;
+}
+.carousel__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 600%;
+    transition: all 1s;
+}
+.carousel__card {
+    width: calc(100% / 6);
+    padding: 0.7rem;
+    transition: all 1s;
+}
+.carousel__card > img {
+    border-radius: 0.5%;
+    width: 100%;
+    display: flex;
+}
+
+.titles {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: all 1s;
+    padding-bottom: 1rem;
+}
+.titles__item {
+    width: 100%;
+    padding: 1.5rem 0.6rem 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.dots {
+    display: flex;
+    width: 12.5rem;
+    margin-left: auto;
+    transform: translateY(-2.1rem);
+    background: #24292f;
+}
+.dots__dot {
+    width: 100%;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 1s;
+}
+.dots__dot:hover span {
+    background: #ffffff;
+    border-color: #ffffff;
+    transition: all 1s;
+}
+.dots__dot:hover .active {
+    background: transparent;
+    border-color: #ffffff;
+}
+
+span {
+    display: block;
+    width: 1rem;
+    padding: 0.4rem 0;
+    border-radius: 50%;
+    border: 0.15rem solid cornflowerblue;
+    background: cornflowerblue;
+    transition: all 1s;
+}
+span:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+/* start slide */
+#slide-1:checked ~ .carousel__inner {
+    transform: translateX(0);
+}
+#slide-2:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6));
+}
+#slide-3:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 2));
+}
+#slide-4:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 3));
+}
+#slide-5:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 4));
+}
+#slide-6:checked ~ .carousel__inner {
+    transform: translateX(calc(-100%/6 * 5));
+}
+/* end slide */
+
+
+
+/* start titles */
+#slide-1:checked ~ .controls .titles {
+    transform: translateX(0);
+}
+#slide-2:checked ~ .controls .titles {
+    transform: translateX(-100%);
+}
+#slide-3:checked ~ .controls .titles {
+    transform: translateX(-200%);
+}
+#slide-4:checked ~ .controls .titles {
+    transform: translateX(-300%);
+}
+#slide-5:checked ~ .controls .titles {
+    transform: translateX(-400%);
+}
+#slide-6:checked ~ .controls .titles {
+    transform: translateX(-500%);
+}
+/* end titles */
+
+
+
+/* start dots */
+#slide-1:checked ~ .controls .dots label:nth-child(1) span {
+    background: transparent;
+    transition: all 1s;
+}
+#slide-2:checked ~ .controls .dots label:nth-child(2) span {
+    background: transparent;
+    transition: all 1s;
+}
+#slide-3:checked ~ .controls .dots label:nth-child(3) span {
+    background: transparent;
+    transition: all 1s;
+}
+#slide-4:checked ~ .controls .dots label:nth-child(4) span {
+    background: transparent;
+    transition: all 1s;
+}
+#slide-5:checked ~ .controls .dots label:nth-child(5) span {
+    background: transparent;
+    transition: all 1s;
+}
+#slide-6:checked ~ .controls .dots label:nth-child(6) span {
+    background: transparent;
+    transition: all 1s;
+}
+    /* and dots */
+
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .titles__item {
+        font-size: 1rem;
+    }
+    .controls {
+        padding: 1rem 0.6rem 2.5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .dots {
+        margin: 0 auto;
+        transform: translateY(0);
+    }
+}
